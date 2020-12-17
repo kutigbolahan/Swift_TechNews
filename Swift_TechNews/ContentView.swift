@@ -11,9 +11,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             
-            List {
-             Text("Hello")
-                Text("Good bye World")
+            List(posts) { post in
+                Text(post.title)
             }
             .navigationBarTitle("Tech News")
         }
@@ -25,3 +24,14 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+struct Post: Identifiable{
+    let id: String
+    let title: String
+}
+
+let posts = [
+Post(id: "1", title: "Hello"),
+    Post(id: "2", title: "BullShit"),
+    Post(id: "3", title: "Fuck the world")
+]
